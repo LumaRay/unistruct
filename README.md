@@ -61,7 +61,7 @@ For array section:
 
 All JSON files's hashes may be stored in any popular blockchain transactions and / or be time stamped with any popular TSA in order to enable historical search and proof.
 
-Hash references to any of parents up to the root are unallowed to prevent cyclical references.
+Hash references to parents up to the root are allowed, however to prevent cyclic references, algorithms that parse the tree should break on another branch parsing when they find themselves walking through the nodes they already parsed (e.g. by making parsed hashes' log) - the algorithms should continue to the next branch in this case.
 
 Multiple references to the same structure leaf are allowed, provided that no cyclical referencing is made.
 
